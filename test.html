@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Alert</title>
+</head>
+<body>
+
+  <h1>Library Test Page</h1>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const success = params.get('success');
+      console.log("Success param:", success); // for debugging
+
+      if (success === 'registered') {
+        alert("Student registered successfully!");
+      } else if (success === 'book_added') {
+        alert("Book added successfully!");
+      } else if (success === 'issued') {
+        alert("Book issued successfully!");
+      } else if (success === 'returned') {
+        alert("Book returned successfully!");
+      } else if (success === 'login') {
+        alert("Logged in successfully!");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Library Management System</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#student">Student Panel</a>
+      <a href="#librarian">Librarian Panel</a>
+      <a href="#add-books">Add Books</a>
+      <a href="#manage-students">Manage Students</a>
+      <a href="#issue-logs">Issue Logs</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome to Our Library</h2>
+      <img src="home.jpg.jpg" alt="Library Image" style="width:100%; max-width:800px;" />
+    </section>
+
+    <section id="student">
+      <h2>Student Panel</h2>
+      <form action="register_student.php" method="post">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="librarian">
+      <h2>Librarian Panel</h2>
+      <img src="3.jpg" alt="Dashboard">
+      <img src="library2.jpg" alt="Book Record">
+      <img src="library3.jpg" alt="Borrowed Books">
+    </section>
+
+    <section id="add-books">
+      <h2>Add New Book</h2>
+      <img src="image/3.jpg" alt="books" style="width:300%; max-width:200px;" />
+      <form action="add_book.php" method="post">
+        <input type="text" name="title" placeholder="Book Title" required />
+        <input type="text" name="author" placeholder="Author" required />
+        <input type="text" name="genre" placeholder="Genre" required />
+        <input type="number" name="copies" placeholder="Copies" required />
+        <button type="submit">Add Book</button>
+      </form>
+    </section>
+
+    <section id="manage-students">
+      <h2>Manage Students</h2>
+      <img src="images/students-for-approval.png" alt="Pending Approval">
+      <img src="images/registered-students.png" alt="Registered Students">
+    </section>
+
+    <section id="issue-logs">
+      <h2>Issue a Book</h2>
+      <form action="issue_book.php" method="post">
+        <input type="number" name="student_id" placeholder="Student ID" required />
+        <input type="number" name="book_id" placeholder="Book ID" required />
+        <button type="submit">Issue Book</button>
+      </form>
+    </section>
+    <form action="return_book.php" method="post">
+  <input type="number" name="issue_id" placeholder="Issue ID" required />
+  <button type="submit">Return Book</button>
+</form>
+<form action="login.php" method="post">
+  <input type="text" name="username" placeholder="Username" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <button type="submit">Login</button>
+</form>
+
+<form action="register_student.php" method="POST">
+  <input type="text" name="name" required placeholder="Student Name">
+  <input type="text" name="student_id" required placeholder="Student ID">
+  <button type="submit">Register Student</button>
+</form>
+
+  </main>
+  <footer>
+    <p>&copy; 2025 Library Management System</p>
+  </footer>
+
+  <!-- Paste this -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const success = params.get('success');
+
+      switch (success) {
+        case 'registered':
+          alert("✅ Student registered successfully!");
+          break;
+        case 'book_added':
+          alert("📚 Book added successfully!");
+          break;
+        case 'issued':
+          alert("📖 Book issued successfully!");
+          break;
+        case 'returned':
+          alert("🔁 Book returned successfully!");
+          break;
+        case 'login_success':
+          alert("🔓 Login successful!");
+          break;
+        case 'login_failed':
+          alert("❌ Invalid login credentials!");
+          break;
+        default:
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
+
+  
